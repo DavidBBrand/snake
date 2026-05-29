@@ -14,21 +14,22 @@ MIN_DELAY  = 0.04        # fastest the game can get
 SPEED_STEP = 0.003       # how much delay drops per food eaten
 
 BODY_COLORS = [
-    # neons
-    "#FF073A", "#FF6700", "#FFEF00", "#39FF14", "#00FFFF",
-    "#0FF0FC", "#BC13FE", "#FF00FF", "#CCFF00", "#FF4500",
-    # vivid solids
-    "#FF6347", "#FFD700", "#00FA9A", "#00BFFF", "#1E90FF",
-    "#8A2BE2", "#7FFF00", "#DC143C", "#FFA500", "#00FF7F",
-    # electric pastels
-    "#85C1FF", "#85FFBD", "#FFD285", "#85FFF4", "#F4FF85",
-    "#FFB385", "#85FF9E", "#D285FF", "#85D4FF", "#FFFF85",
+    # greens (grass snakes, green tree pythons, rough green snakes)
+    "#4A7C3F", "#5A8F3C", "#6B8E23", "#3B6E2A", "#7A9E4E",
+    # browns & tans (garter snakes, rat snakes, king snakes)
+    "#8B6914", "#A0785A", "#7B5B3A", "#C4A265", "#9E7B4A",
+    # blacks & dark grays (black racers, indigo snakes)
+    "#2C2C2C", "#3D3D3D", "#1A1A1A", "#4A4040", "#333333",
+    # reds & oranges (corn snakes, milk snakes)
+    "#B84A2A", "#C4622D", "#A03820", "#D4733A", "#8B3A1E",
+    # yellows & olives (bull snakes, pine snakes)
+    "#9E8B3A", "#B8A44A", "#7A6E28", "#C4A83A", "#8B7A30",
 ]
 
 # ── Screen ───────────────────────────────────────────────────────────────────
 wn = turtle.Screen()
 wn.title("Snake Game by @David")
-wn.bgcolor("#4A4A1A")
+wn.bgcolor("#1E1E08")
 wn.bgpic("background.gif")
 wn.setup(width=600, height=600)
 wn.tracer(0)
