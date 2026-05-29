@@ -14,10 +14,15 @@ MIN_DELAY  = 0.04        # fastest the game can get
 SPEED_STEP = 0.003       # how much delay drops per food eaten
 
 BODY_COLORS = [
-    "#FF5C00", "#FF3131", "#1F51FF", "#40F994", "#797814",
-    "#878BA7", "#92B7A4", "#5ABCB8", "#56DAAB", "#C0F7C4",
-    "#A0E3A2", "#F77019", "#2AF850", "#5BDF90", "#674C19",
-    "#B9D2B7", "#38B647", "#F31563", "#7F4DB5",
+    # neons
+    "#FF073A", "#FF6700", "#FFEF00", "#39FF14", "#00FFFF",
+    "#0FF0FC", "#BC13FE", "#FF00FF", "#CCFF00", "#FF4500",
+    # vivid solids
+    "#FF6347", "#FFD700", "#00FA9A", "#00BFFF", "#1E90FF",
+    "#8A2BE2", "#7FFF00", "#DC143C", "#FFA500", "#00FF7F",
+    # electric pastels
+    "#85C1FF", "#85FFBD", "#FFD285", "#85FFF4", "#F4FF85",
+    "#FFB385", "#85FF9E", "#D285FF", "#85D4FF", "#FFFF85",
 ]
 
 # ── Screen ───────────────────────────────────────────────────────────────────
@@ -27,7 +32,9 @@ wn.bgcolor("blue")
 wn.bgpic("background.gif")
 wn.setup(width=600, height=600)
 wn.tracer(0)
-wn.register_shape("hamburger.gif")
+BURGER_FRAMES = 12
+for _i in range(BURGER_FRAMES):
+    wn.register_shape(f"burger_{_i:02d}.gif")
 wn.register_shape("head_right.gif")
 wn.register_shape("head_left.gif")
 wn.register_shape("head_up.gif")
@@ -37,8 +44,9 @@ wn.register_shape("head_down.gif")
 score      = 0
 high_score = 0
 delay      = BASE_DELAY
-paused     = False
-segments   = []
+paused        = False
+segments      = []
+burger_frame  = 0
 
 # ── Snake head ───────────────────────────────────────────────────────────────
 head = turtle.Turtle()
@@ -52,7 +60,7 @@ head.direction = "stop"
 # ── Food ─────────────────────────────────────────────────────────────────────
 food = turtle.Turtle()
 food.speed(0)
-food.shape("hamburger.gif")
+food.shape("burger_00.gif")
 food.penup()
 food.goto(0, 100)
 
@@ -156,6 +164,10 @@ wn.onkeypress(toggle_pause,"space")
 while True:
     wn.update()
 
+    # Spin the burger
+    burger_frame = (burger_frame + 1) % BURGER_FRAMES
+    food.shape(f"burger_{burger_frame:02d}.gif")
+
     if paused:
         time.sleep(0.05)
         continue
@@ -181,6 +193,7 @@ while True:
         seg = turtle.Turtle()
         seg.speed(0)
         seg.shape("square")
+        seg.shapesize(0.6, 0.6)  # ~12×12 px — narrower than grid for snake look
         seg.color(random.choice(BODY_COLORS))
         seg.penup()
         segments.append(seg)
