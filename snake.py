@@ -28,6 +28,10 @@ wn.bgpic("background.gif")
 wn.setup(width=600, height=600)
 wn.tracer(0)
 wn.register_shape("hamburger.gif")
+wn.register_shape("head_right.gif")
+wn.register_shape("head_left.gif")
+wn.register_shape("head_up.gif")
+wn.register_shape("head_down.gif")
 
 # ── State ────────────────────────────────────────────────────────────────────
 score      = 0
@@ -39,7 +43,7 @@ segments   = []
 # ── Snake head ───────────────────────────────────────────────────────────────
 head = turtle.Turtle()
 head.speed(0)
-head.shape("square")
+head.shape("head_right.gif")
 head.color("lime green")
 head.penup()
 head.goto(0, 0)
@@ -84,6 +88,7 @@ def reset_game():
     time.sleep(0.8)
     head.goto(0, 0)
     head.direction = "stop"
+    head.shape("head_right.gif")
     for seg in segments:
         seg.goto(1000, 1000)
     segments.clear()
@@ -102,18 +107,22 @@ def show_message(msg):
 def go_up():
     if head.direction != "down":
         head.direction = "up"
+        head.shape("head_up.gif")
 
 def go_down():
     if head.direction != "up":
         head.direction = "down"
+        head.shape("head_down.gif")
 
 def go_left():
     if head.direction != "right":
         head.direction = "left"
+        head.shape("head_left.gif")
 
 def go_right():
     if head.direction != "left":
         head.direction = "right"
+        head.shape("head_right.gif")
 
 def toggle_pause():
     global paused
