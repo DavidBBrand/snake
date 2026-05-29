@@ -29,13 +29,13 @@ BODY_COLORS = [
 # ── Screen ───────────────────────────────────────────────────────────────────
 wn = turtle.Screen()
 wn.title("Snake Game by @David")
-wn.bgcolor("#1E1E08")
+wn.bgcolor("#1A0505")
 wn.bgpic("background.gif")
 wn.setup(width=600, height=600)
 wn.tracer(0)
-BURGER_FRAMES = 12
-for _i in range(BURGER_FRAMES):
-    wn.register_shape(f"burger_{_i:02d}.gif")
+FOOD_FRAMES = 12
+for _i in range(FOOD_FRAMES):
+    wn.register_shape(f"penis_{_i:02d}.gif")
 wn.register_shape("head_right.gif")
 wn.register_shape("head_left.gif")
 wn.register_shape("head_up.gif")
@@ -61,7 +61,7 @@ head.direction = "stop"
 # ── Food ─────────────────────────────────────────────────────────────────────
 food = turtle.Turtle()
 food.speed(0)
-food.shape("burger_00.gif")
+food.shape("penis_00.gif")
 food.penup()
 food.goto(0, 100)
 
@@ -166,8 +166,8 @@ while True:
     wn.update()
 
     # Spin the burger
-    burger_frame = (burger_frame + 1) % BURGER_FRAMES
-    food.shape(f"burger_{burger_frame:02d}.gif")
+    burger_frame = (burger_frame + 1) % FOOD_FRAMES
+    food.shape(f"penis_{burger_frame:02d}.gif")
 
     if paused:
         time.sleep(0.05)
