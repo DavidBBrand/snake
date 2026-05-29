@@ -74,7 +74,7 @@ pen.penup()
 pen.hideturtle()
 pen.goto(0, 265)
 pen.write("Score: 0   High Score: 0", align="center",
-          font=("Courier", 14, "bold"))
+          font=("Impact", 16, "normal"))
 
 # ── Overlay pen (game-over / paused messages) ─────────────────────────────────
 overlay = turtle.Turtle()
@@ -89,7 +89,7 @@ overlay.color("white")
 def update_score():
     pen.clear()
     pen.write(f"Score: {score}   High Score: {high_score}",
-              align="center", font=("Courier", 14, "bold"))
+              align="center", font=("Impact", 16, "normal"))
 
 
 def reset_game():
