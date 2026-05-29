@@ -28,7 +28,7 @@ BODY_COLORS = [
 # ── Screen ───────────────────────────────────────────────────────────────────
 wn = turtle.Screen()
 wn.title("Snake Game by @David")
-wn.bgcolor("blue")
+wn.bgcolor("#4A4A1A")
 wn.bgpic("background.gif")
 wn.setup(width=600, height=600)
 wn.tracer(0)
