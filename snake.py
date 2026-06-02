@@ -35,7 +35,7 @@ wn.setup(width=600, height=600)
 wn.tracer(0)
 FOOD_FRAMES = 12
 for _i in range(FOOD_FRAMES):
-    wn.register_shape(f"penis_{_i:02d}.gif")
+    wn.register_shape(f"burger_{_i:02d}.gif")
 wn.register_shape("head_right.gif")
 wn.register_shape("head_left.gif")
 wn.register_shape("head_up.gif")
@@ -61,7 +61,7 @@ head.direction = "stop"
 # ── Food ─────────────────────────────────────────────────────────────────────
 food = turtle.Turtle()
 food.speed(0)
-food.shape("penis_00.gif")
+food.shape("burger_00.gif")
 food.penup()
 food.goto(0, 100)
 
@@ -167,7 +167,7 @@ while True:
 
     # Spin the burger
     burger_frame = (burger_frame + 1) % FOOD_FRAMES
-    food.shape(f"penis_{burger_frame:02d}.gif")
+    food.shape(f"burger_{burger_frame:02d}.gif")
 
     if paused:
         time.sleep(0.05)
